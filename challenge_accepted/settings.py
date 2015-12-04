@@ -44,7 +44,7 @@ INSTALLED_APPS = (
     'corsheaders',
     'challenge',
     'users',
-    'api'
+    'api',
 )
 
 MIDDLEWARE_CLASSES = (
