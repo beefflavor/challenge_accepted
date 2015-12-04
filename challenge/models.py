@@ -7,18 +7,25 @@ from django.db import models
 
 
 class Challengev(models.Model):
-    title = models.CharField(max_length=20)
-    description = models.CharField(max_length=200)
+    title = models.CharField(max_length=255)
+    description = models.TextField()
     user = models.ForeignKey(User)
     video = models.URLField(max_length=255)
     post_at = models.DateTimeField(auto_now_add=True)
     mod_at = models.DateTimeField(auto_now=True)
 
+    def __str__(self):
+        return "{}".format(self.title,)
+
 
 class Like(models.Model):
     like = models.ForeignKey(Challengev)
+    user = models.ForeignKey(User)
     post_at = models.DateTimeField(auto_now_add=True)
     mod_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return "{}".format(self.user,)
 
 
 # class Challengep(models.Model):
@@ -26,3 +33,5 @@ class Like(models.Model):
 #     description = models.CharField(max_length=200)
 #     user = models.ForeignKey(User)
 #     picture = models.ImageField(upload_to='challenge_pictures')
+#     post_at = models.DateTimeField(auto_now_add=True)
+#     mod_at = models.DateTimeField(auto_now=True)
