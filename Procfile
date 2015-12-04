@@ -1,1 +1,1 @@
-web: gunicorn chirper.wsgi --log-file -
+web: gunicorn challenge_accepted.wsgi --log-file -
