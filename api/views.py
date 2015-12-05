@@ -1,6 +1,5 @@
 from api.seriallzers import *
-from django.shortcuts import render
-from rest_framework import generics, permissions, filters
+from rest_framework import generics
 from challenge.models import *
 
 
@@ -70,6 +69,3 @@ class APIListCreateProfile(generics.ListCreateAPIView):
 class APIDetailUpdateProfile(generics.RetrieveUpdateDestroyAPIView):
     queryset = Profile.objects.order_by('user')
     serializer_class = ProfileSeriallzer
-
-
-
