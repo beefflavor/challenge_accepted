@@ -12,6 +12,14 @@ class APIListCreateChallengev(generics.ListCreateAPIView):
         serializer.save()
 
 
+class APIListCreateChallengevlikes(generics.ListCreateAPIView):
+    queryset = Challengev.objects.order_by('-like')
+    serializer_class = ChallengevSeriallzer
+
+    def perform_create(self, serializer):
+        serializer.save()
+
+
 class APIDetailUpdateChallengev(generics.RetrieveUpdateDestroyAPIView):
     queryset = Challengev.objects.order_by('-post_at')
     serializer_class = ChallengevSeriallzer
@@ -19,6 +27,14 @@ class APIDetailUpdateChallengev(generics.RetrieveUpdateDestroyAPIView):
 
 class APIListCreateSubmissionv(generics.ListCreateAPIView):
     queryset = Submissionv.objects.order_by('-post_at')
+    serializer_class = SubmissionvSerializer
+
+    def perform_create(self, serializer):
+        serializer.save()
+
+
+class APIListCreateSubmissionvlikes(generics.ListCreateAPIView):
+    queryset = Submissionv.objects.order_by('-submissionlike')
     serializer_class = SubmissionvSerializer
 
     def perform_create(self, serializer):

@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
 from api.views import APIListCreateChallengev, APIDetailUpdateChallengev, APIListCreateLike, APIDetailUpdateLike, \
-    APIListCreateSubmissionv, APIDetailUpdateSubmissionv
+    APIListCreateSubmissionv, APIDetailUpdateSubmissionv, APIListCreateChallengevlikes, APIListCreateSubmissionvlikes
 from django.conf.urls import include, url
 from django.contrib import admin
 
@@ -26,4 +26,6 @@ urlpatterns = [
     url(r'^api/submissionv/(?P<pk>\d+)$', APIDetailUpdateSubmissionv.as_view(), name='api_detail'),
     url(r'^api/like/$', APIListCreateLike.as_view(), name='like_list'),
     url(r'^api/like/(?P<pk>\d+)$', APIDetailUpdateLike.as_view(), name='like_detial'),
+    url(r'^api/topchallengev/$', APIListCreateChallengevlikes.as_view(), name='top_liked_challengesv'),
+    url(r'^api/topsubmissionv/$', APIListCreateSubmissionvlikes.as_view(), name='top_liked_submissionsv'),
 ]

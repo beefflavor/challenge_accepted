@@ -50,6 +50,7 @@ class Like(models.Model):
     def __str__(self):
         return "{}".format(self.user,)
 
+
 class SubmissionLike(models.Model):
     like = models.ForeignKey(Submissionv)
     user = models.ForeignKey(User)
