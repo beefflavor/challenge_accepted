@@ -58,3 +58,18 @@ class APIDetailUpdateLike(generics.RetrieveUpdateDestroyAPIView):
     queryset = Like.objects.order_by('-post_at')
     serializer_class = LikeSeriallzer
 
+
+class APIListCreateProfile(generics.ListCreateAPIView):
+    queryset = Profile.objects.order_by('id')
+    serializer_class = ProfileSeriallzer
+
+    def perform_create(self, serializer):
+        serializer.save()
+
+
+class APIDetailUpdateProfile(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Profile.objects.order_by('user')
+    serializer_class = ProfileSeriallzer
+
+
+

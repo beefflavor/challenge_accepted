@@ -13,8 +13,7 @@ Including another URLconf
     1. Add an import:  from blog import urls as blog_urls
     2. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
-from api.views import APIListCreateChallengev, APIDetailUpdateChallengev, APIListCreateLike, APIDetailUpdateLike, \
-    APIListCreateSubmissionv, APIDetailUpdateSubmissionv, APIListCreateChallengevlikes, APIListCreateSubmissionvlikes
+from api.views import *
 from django.conf.urls import include, url
 from django.contrib import admin
 
@@ -25,7 +24,9 @@ urlpatterns = [
     url(r'^api/submissionv/$', APIListCreateSubmissionv.as_view(), name='api_list'),
     url(r'^api/submissionv/(?P<pk>\d+)$', APIDetailUpdateSubmissionv.as_view(), name='api_detail'),
     url(r'^api/like/$', APIListCreateLike.as_view(), name='like_list'),
-    url(r'^api/like/(?P<pk>\d+)$', APIDetailUpdateLike.as_view(), name='like_detial'),
+    url(r'^api/like/(?P<pk>\d+)$', APIDetailUpdateLike.as_view(), name='like_detail'),
     url(r'^api/topchallengev/$', APIListCreateChallengevlikes.as_view(), name='top_liked_challengesv'),
     url(r'^api/topsubmissionv/$', APIListCreateSubmissionvlikes.as_view(), name='top_liked_submissionsv'),
+    url(r'^api/profile/$', APIListCreateProfile.as_view(), name='list of profiles'),
+    url(r'^api/profile/(?P<pk>\d+)$', APIDetailUpdateProfile.as_view(), name='profile_detail'),
 ]
