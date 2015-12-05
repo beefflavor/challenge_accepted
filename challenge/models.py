@@ -18,6 +18,14 @@ class Challengev(models.Model):
         return "{}".format(self.title,)
 
 
+class Submissionv(models.Model):
+    user = models.ForeignKey(User)
+    challenge = models.ForeignKey(Challengev)
+    title = models.CharField(max_length=255)
+    video = models.URLField(max_length=255)
+    post_at = models.DateTimeField(auto_now_add=True)
+    mod_at = models.DateTimeField(auto_now=True)
+
 class Like(models.Model):
     like = models.ForeignKey(Challengev)
     user = models.ForeignKey(User)

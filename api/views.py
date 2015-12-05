@@ -1,4 +1,4 @@
-from api.seriallzers import ChallengevSeriallzer, LikeSeriallzer
+from api.seriallzers import *
 from django.shortcuts import render
 from rest_framework import generics, permissions, filters
 from challenge.models import *
@@ -15,6 +15,20 @@ class APIListCreateChallengev(generics.ListCreateAPIView):
 class APIDetailUpdateChallengev(generics.RetrieveUpdateDestroyAPIView):
     queryset = Challengev.objects.order_by('-post_at')
     serializer_class = ChallengevSeriallzer
+
+
+
+class APIListCreateSubmissionv(generics.ListCreateAPIView):
+    queryset = Submissionv.objects.order_by('-post_at')
+    serializer_class = SubmissionvSerializer
+
+    def perform_create(self, serializer):
+        serializer.save()
+
+
+class APIDetailUpdateSubmissionv(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Submissionv.objects.order_by('-post_at')
+    serializer_class = SubmissionvSerializer
 
 
 class APIListCreateLike(generics.ListCreateAPIView):

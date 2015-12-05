@@ -13,14 +13,17 @@ Including another URLconf
     1. Add an import:  from blog import urls as blog_urls
     2. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
-from api.views import APIListCreateChallengev, APIDetailUpdateChallengev, APIListCreateLike, APIDetailUpdateLike
+from api.views import APIListCreateChallengev, APIDetailUpdateChallengev, APIListCreateLike, APIDetailUpdateLike, \
+    APIListCreateSubmissionv, APIDetailUpdateSubmissionv
 from django.conf.urls import include, url
 from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^api/challengev/$', APIListCreateChallengev.as_view(), name='api_list'),
-    url(r'^api/challengev/(?P<pk>\d+)$', APIDetailUpdateChallengev.as_view(), name='api_detail'),
+    url(r'^api/challengev/$', APIListCreateChallengev.as_view(), name='api_challenge_list'),
+    url(r'^api/challengev/(?P<pk>\d+)$', APIDetailUpdateChallengev.as_view(), name='api_challenge_detail'),
+    url(r'^api/submissionv/$', APIListCreateSubmissionv.as_view(), name='api_list'),
+    url(r'^api/submissionv/(?P<pk>\d+)$', APIDetailUpdateSubmissionv.as_view(), name='api_detail'),
     url(r'^api/like/$', APIListCreateLike.as_view(), name='like_list'),
     url(r'^api/like/(?P<pk>\d+)$', APIDetailUpdateLike.as_view(), name='like_detial'),
 ]

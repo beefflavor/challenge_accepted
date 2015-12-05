@@ -9,8 +9,20 @@ class ChallengevSeriallzer(serializers.ModelSerializer):
         fields = ('title', 'description', 'user', 'video', 'post_at', 'mod_at')
 
 
+class SubmissionvSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Submissionv
+        fields = ('challenge', 'title', 'user', 'video', 'post_at', 'mod_at')
+
+
+
 class LikeSeriallzer(serializers.ModelSerializer):
     class Meta:
         model = Like
         fields = ('like', 'post_at', 'mod_at')
+
+
+
+
+
 

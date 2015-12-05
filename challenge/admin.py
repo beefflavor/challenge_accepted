@@ -1,10 +1,15 @@
 from django.contrib import admin
-from challenge.models import Challengev, Like
+from challenge.models import *
 
 
 @admin.register(Challengev)
 class ChallengevAdmin(admin.ModelAdmin):
     list_display = ('title', 'description', 'user', 'video', 'post_at', 'mod_at')
+
+
+@admin.register(Submissionv)
+class SubmissionvAdmin(admin.ModelAdmin):
+    list_display = ('challenge', 'title', 'user', 'video', 'post_at', 'mod_at')
 
 
 @admin.register(Like)
