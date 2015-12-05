@@ -12,7 +12,11 @@ class Challengev(models.Model):
     user = models.ForeignKey(User)
     video = models.URLField(max_length=255)
     post_at = models.DateTimeField(auto_now_add=True)
-    mod_at = models.DateTimeField(auto_now=True)
+
+    @property
+    def subs(self):
+        all_subs = self.submissionv_set.count()
+        return all_subs
 
     def __str__(self):
         return "{}".format(self.title,)
@@ -25,6 +29,7 @@ class Submissionv(models.Model):
     video = models.URLField(max_length=255)
     post_at = models.DateTimeField(auto_now_add=True)
     mod_at = models.DateTimeField(auto_now=True)
+
 
 class Like(models.Model):
     like = models.ForeignKey(Challengev)

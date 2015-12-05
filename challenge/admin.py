@@ -4,7 +4,7 @@ from challenge.models import *
 
 @admin.register(Challengev)
 class ChallengevAdmin(admin.ModelAdmin):
-    list_display = ('title', 'description', 'user', 'video', 'post_at', 'mod_at')
+    list_display = ('title', 'description', 'user', 'video', 'post_at')
 
 
 @admin.register(Submissionv)
@@ -15,6 +15,7 @@ class SubmissionvAdmin(admin.ModelAdmin):
 @admin.register(Like)
 class LikeAdmin(admin.ModelAdmin):
     list_display = ('like', 'post_at', 'mod_at')
+
 
 # @admin.register(Challengep)
 # class ChallengepAdmin(admin.ModelAdmin):

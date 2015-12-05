@@ -17,7 +17,6 @@ class APIDetailUpdateChallengev(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = ChallengevSeriallzer
 
 
-
 class APIListCreateSubmissionv(generics.ListCreateAPIView):
     queryset = Submissionv.objects.order_by('-post_at')
     serializer_class = SubmissionvSerializer
