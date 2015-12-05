@@ -6,7 +6,7 @@ from challenge.models import *
 class ChallengevSeriallzer(serializers.ModelSerializer):
     class Meta:
         model = Challengev
-        fields = ('title', 'description', 'user', 'video', 'post_at', 'subs')
+        fields = ('id','title', 'description', 'user', 'video', 'post_at', 'subs', 'likes')
 
 
 class SubmissionvSerializer(serializers.ModelSerializer):

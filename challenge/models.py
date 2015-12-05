@@ -14,6 +14,11 @@ class Challengev(models.Model):
     post_at = models.DateTimeField(auto_now_add=True)
 
     @property
+    def likes(self):
+        like_count = self.like_set.count()
+        return like_count
+
+    @property
     def subs(self):
         all_subs = self.submissionv_set.count()
         return all_subs
@@ -29,6 +34,7 @@ class Submissionv(models.Model):
     video = models.URLField(max_length=255)
     post_at = models.DateTimeField(auto_now_add=True)
     mod_at = models.DateTimeField(auto_now=True)
+
 
 
 class Like(models.Model):
