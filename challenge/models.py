@@ -35,10 +35,23 @@ class Submissionv(models.Model):
     post_at = models.DateTimeField(auto_now_add=True)
     mod_at = models.DateTimeField(auto_now=True)
 
+    @property
+    def likes(self):
+        like_count = self.submissionlike_set.count()
+        return like_count
 
 
 class Like(models.Model):
     like = models.ForeignKey(Challengev)
+    user = models.ForeignKey(User)
+    post_at = models.DateTimeField(auto_now_add=True)
+    mod_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return "{}".format(self.user,)
+
+class SubmissionLike(models.Model):
+    like = models.ForeignKey(Submissionv)
     user = models.ForeignKey(User)
     post_at = models.DateTimeField(auto_now_add=True)
     mod_at = models.DateTimeField(auto_now=True)

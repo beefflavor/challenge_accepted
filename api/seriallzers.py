@@ -12,7 +12,7 @@ class ChallengevSeriallzer(serializers.ModelSerializer):
 class SubmissionvSerializer(serializers.ModelSerializer):
     class Meta:
         model = Submissionv
-        fields = ('challenge', 'title', 'user', 'video', 'post_at', 'mod_at')
+        fields = ('challenge', 'likes', 'title', 'user', 'video', 'post_at', 'mod_at')
 
 
 
